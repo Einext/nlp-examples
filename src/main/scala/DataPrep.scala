@@ -5,11 +5,17 @@ import play.api.libs.json.{JsObject, JsString}
 import scala.io.Source
 
 
+/*
+*  Download IMDB curated data from http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+*  Unzip it a location of your choice and pass the location as command line argument
+*
+* */
+
 object DataPrep {
 
   def main(args: Array[String]): Unit = {
 
-    val base = "/Volumes/SONY/Data/IMDB-review"
+    val base = args(0)
 
     val output = new BufferedOutputStream(new FileOutputStream(new File("output.json")))
 

@@ -1,3 +1,5 @@
+package com.einext
+
 import java.io.{PrintWriter, StringReader}
 import java.util.{Properties, List => JList}
 
@@ -16,6 +18,7 @@ import scala.collection.JavaConversions._
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source
 
+
 object HelloNLP {
 
   private val logger = LoggerFactory.getLogger(getClass)
@@ -27,6 +30,7 @@ object HelloNLP {
 
 
   def main(args: Array[String]): Unit = {
+
 
     var text = Source.fromFile("input/sentiment-input.txt").getLines().mkString
     val annotation = new Annotation(text)
@@ -107,7 +111,10 @@ object HelloNLP {
     //println(tdl)
 
     tdl.foreach{dependency =>
-      println(s"QA --- Governor word: [${dependency.gov().originalText()}] Relation: [${dependency.reln().getLongName}] Dependent Word: [${dependency.dep().originalText()}]")
+      val govr = dependency.gov().originalText()
+      val rel = dependency.reln().getLongName
+      val dep = dependency.dep().originalText()
+      println(s"QA --- Governor word: [$govr] Relation: [$rel] Dependent Word: [$dep]")
     }
 
 

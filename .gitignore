@@ -2,4 +2,5 @@
 /target/
 /.idea/
 /project/
-/output.json
+/output/
+src/test/
